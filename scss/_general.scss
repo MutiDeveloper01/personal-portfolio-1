@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Sora:100,200,300,regular,500,600,700,800);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Sora" , sans-serif;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+
+$primary-black: #000000;
+$primary-neutral: #404040;
+$primary-white: #ffffff;
+
+$zinc-100: #F4F4F5;
+$zinc-200: #E4E4E7;
+$zinc-300: #D4D4D8;
+$zinc-500: #71717A;
+$zinc-800: #27272A;
+
+$error: #EF4444;
+
+$colors: (
+    "primary-black" : #000000,
+    "primary-neutral" : #404040,
+    "primary-white" :#ffffff,
+    "zinc-100": #F4F4F5,
+    "zinc-200": #E4E4E7,
+    "zinc-300": #D4D4D8,
+    "zinc-500": #71717A,
+    "zinc-800": #27272A,
+    "error": #EF4444,
+);
+
+@each $name , $color in $colors{
+    .text-#{$name}{
+        color: $color;
+    }
+    .bg-#{$name}{
+        background: $color;
+    }
+}
+@for $i from 4 through 12{
+    .rounded-#{$i}{
+        border-radius: $i + px;
+    }
+}
+@for $i from 4 through 80{
+    .p-#{$i} {
+        padding: $i + px;
+    }
+    .p-y-#{$i} {
+        padding-top: $i + px;
+        padding-bottom: $i + px;
+    }
+    .p-x-#{$i} {
+        padding-right: $i + px;
+        padding-left: $i + px;
+    }
+    .gap-#{$i}{
+        gap: $i + px;
+    }
+}

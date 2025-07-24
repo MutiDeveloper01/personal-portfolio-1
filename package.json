@@ -1,0 +1,13 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass-watch" : "sass --watch scss/main.scss style/main.css",
+    "sass-general" : "sass --watch scss/_general.scss style/_general.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
