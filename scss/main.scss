@@ -159,15 +159,91 @@ main{
                 background-color: transparent;
                 color: $primary-black;
 
-                &:hover{
+                &:first-child{
                     background-color: $primary-black;
-                    color: $primary-white
+                    color: $primary-white;
                 }
             }
         }
     }
     // mobile 
     .mobile-hero{
+        display: none;
+    }
+}
+
+// Skills 
+.skills{
+    width: 100%;
+    height: 728px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // desktop 
+    .desktop-skills{
+        width: 100%;
+        max-width: 1280px;
+        height: 608px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .heading{
+            width: 100%;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 48px;
+
+            h3{
+                font-weight: 400;
+
+                span{
+                    font-weight: 900;
+                }
+            }
+        }
+        .container{
+            width: 100%;
+            height: 492px;
+            display: grid;
+            grid-template-columns: 186px 186px 186px 186px 186px;
+            grid-template-rows: 186px 186px;
+            justify-content: space-between;
+            grid-row-gap: 40px;
+
+            .box{
+                background-color: $primary-white;
+                border: 2px solid $primary-black;
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                transition: background , color .5 ease-in-out;
+
+                .box-pic{
+                    font-size: 56px;
+                }
+                .box-text{
+                    font-size: 20px;
+                }
+
+                &:hover{
+                    background: $primary-black;
+                    color: $primary-white;
+                }
+            }
+        }
+    }
+
+    // mobile 
+    .mobile-skills{
         display: none;
     }
 }
@@ -248,7 +324,7 @@ main{
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            height: 768px;
+            height: 788px;
 
             // vactor box 
             .vector-box{
@@ -262,8 +338,143 @@ main{
                 }
             }
             // text box 
+            .text-box{
+                width: 100%;
+                height: 408px;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: space-around;
+                > span{
+                    display: flex;
+                    align-items: center;
+                    font-size: 24px;
+                    gap: 0.5rem;
+                    white-space: nowrap;
+                    span:last-child{
+                        font-weight: 900;
+                    }
 
-            // social 
+                    &:nth-child(2){
+                        font-weight: 900;
+
+                        span:last-child{
+                            color: $primary-white;
+                            text-shadow:
+                            -1px -1px 0 black , 
+                            1px -1px 0 black ,
+                            -1px -1px 0 black  ,
+                            1px 1px 0 black;
+                        }
+                    }
+                    &:nth-child(3){
+                        span:last-child{
+                            font-weight: 900;
+                        }
+                    }
+                }
+
+                p{
+                    font-size: 1rem;
+                    line-height: 1.8;
+                }
+                .social{
+                    width: 264px;
+                    height: 56px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    a{
+                        width: 48px;
+                        height: 48px;
+                        border: 2px solid $primary-black;
+                        display: grid;
+                        place-items: center;
+                        border-radius: 4px;
+                        font-size: 20px;
+
+                        &:hover{
+                            background: $primary-black;
+                            color: $primary-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Skills 
+    .skills{
+        width: 100%;
+        height: 692px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // desktop 
+        .desktop-skills{
+            display: none;
+        }
+        // mobile 
+        .mobile-skills{
+            width: 100%;
+            height: 612px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            
+            .heading{
+                width: 100%;
+                height: 72px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+
+                h3{
+                    font-size: 28px;
+                    font-weight: 400;
+
+                    span{
+                        font-weight: 900;
+                    }
+                }
+            }
+
+            .container{
+                width: 100%;
+                height: 520px;
+                display: grid;
+                grid-template-columns: 160px 160px;
+                grid-template-rows: 160px 160px;
+                grid-gap: 1rem;
+
+                .box{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    border: 2px solid $primary-black;
+                    color: $primary-black;
+                    background-color: $primary-white;
+                    border-radius: 4px;
+                    gap: 1rem;
+
+                    .box-pic{
+                        font-size: 56px;
+                    }
+                    .box-text{
+                        font-size: 20px;
+                    }
+
+                    &:hover{
+                        background-color: $primary-black;
+                        color: $primary-white
+                    }
+                }
+            }
         }
     }
 }

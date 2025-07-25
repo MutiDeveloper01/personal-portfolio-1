@@ -1639,11 +1639,76 @@ main {
   background-color: transparent;
   color: #000000;
 }
-.hero .desktop-hero .social > a:hover {
+.hero .desktop-hero .social > a:first-child {
   background-color: #000000;
   color: #ffffff;
 }
 .hero .mobile-hero {
+  display: none;
+}
+
+.skills {
+  width: 100%;
+  height: 728px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills .desktop-skills {
+  width: 100%;
+  max-width: 1280px;
+  height: 608px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.skills .desktop-skills .heading {
+  width: 100%;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 48px;
+}
+.skills .desktop-skills .heading h3 {
+  font-weight: 400;
+}
+.skills .desktop-skills .heading h3 span {
+  font-weight: 900;
+}
+.skills .desktop-skills .container {
+  width: 100%;
+  height: 492px;
+  display: grid;
+  grid-template-columns: 186px 186px 186px 186px 186px;
+  grid-template-rows: 186px 186px;
+  justify-content: space-between;
+  grid-row-gap: 40px;
+}
+.skills .desktop-skills .container .box {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: background, color 0.5 ease-in-out;
+}
+.skills .desktop-skills .container .box .box-pic {
+  font-size: 56px;
+}
+.skills .desktop-skills .container .box .box-text {
+  font-size: 20px;
+}
+.skills .desktop-skills .container .box:hover {
+  background: #000000;
+  color: #ffffff;
+}
+.skills .mobile-skills {
   display: none;
 }
 
@@ -1696,7 +1761,7 @@ main {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 768px;
+    height: 788px;
   }
   .hero .mobile-hero .vector-box {
     width: 100%;
@@ -1705,6 +1770,120 @@ main {
   .hero .mobile-hero .vector-box img {
     width: 100%;
     height: 100%;
+  }
+  .hero .mobile-hero .text-box {
+    width: 100%;
+    height: 408px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+  }
+  .hero .mobile-hero .text-box > span {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+  .hero .mobile-hero .text-box > span span:last-child {
+    font-weight: 900;
+  }
+  .hero .mobile-hero .text-box > span:nth-child(2) {
+    font-weight: 900;
+  }
+  .hero .mobile-hero .text-box > span:nth-child(2) span:last-child {
+    color: #ffffff;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px -1px 0 black, 1px 1px 0 black;
+  }
+  .hero .mobile-hero .text-box > span:nth-child(3) span:last-child {
+    font-weight: 900;
+  }
+  .hero .mobile-hero .text-box p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .hero .mobile-hero .text-box .social {
+    width: 264px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero .mobile-hero .text-box .social a {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #000000;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    font-size: 20px;
+  }
+  .hero .mobile-hero .text-box .social a:hover {
+    background: #000000;
+    color: #ffffff;
+  }
+  .skills {
+    width: 100%;
+    height: 692px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .skills .desktop-skills {
+    display: none;
+  }
+  .skills .mobile-skills {
+    width: 100%;
+    height: 612px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .skills .mobile-skills .heading {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .skills .mobile-skills .heading h3 {
+    font-size: 28px;
+    font-weight: 400;
+  }
+  .skills .mobile-skills .heading h3 span {
+    font-weight: 900;
+  }
+  .skills .mobile-skills .container {
+    width: 100%;
+    height: 520px;
+    display: grid;
+    grid-template-columns: 160px 160px;
+    grid-template-rows: 160px 160px;
+    grid-gap: 1rem;
+  }
+  .skills .mobile-skills .container .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #000000;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 4px;
+    gap: 1rem;
+  }
+  .skills .mobile-skills .container .box .box-pic {
+    font-size: 56px;
+  }
+  .skills .mobile-skills .container .box .box-text {
+    font-size: 20px;
+  }
+  .skills .mobile-skills .container .box:hover {
+    background-color: #000000;
+    color: #ffffff;
   }
 }
 
