@@ -1509,6 +1509,61 @@ li {
   gap: 80px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+* {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
 .header {
   width: 100%;
   height: 104px;
@@ -1516,6 +1571,7 @@ li {
   align-items: center;
   justify-content: center;
   padding: 0 2rem;
+  animation-name: fadeIn;
 }
 .header .desktop-header {
   width: 100%;
@@ -1524,14 +1580,23 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  animation-name: slideUp;
+  animation-delay: 0.2s;
 }
 .header .desktop-header a {
   width: 140px;
   height: 40px;
+  transition: transform 0.3s ease;
+  animation-name: slideInLeft;
+  animation-delay: 0.3s;
+}
+.header .desktop-header a:hover {
+  transform: scale(1.05);
 }
 .header .desktop-header a img {
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
 }
 .header .desktop-header .menu {
   width: auto;
@@ -1539,17 +1604,51 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: fadeIn;
+  animation-delay: 0.4s;
 }
 .header .desktop-header .menu-item {
   font-size: 20px;
   color: #000000;
-  font-weight: 6a00;
+  font-weight: 600;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease;
+  animation-name: slideUp;
+  animation-delay: 0.5s;
+}
+.header .desktop-header .menu-item:hover {
+  color: black;
+}
+.header .desktop-header .menu-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+.header .desktop-header .menu-item:hover::after {
+  width: 100%;
 }
 .header .desktop-header .action-btn {
   border: none;
   font-weight: 600;
   font-size: 20px;
   cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  animation-name: slideInRight;
+  animation-delay: 0.6s;
+}
+.header .desktop-header .action-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .header .mobile-header {
   display: none;
@@ -1560,6 +1659,8 @@ main {
   height: auto;
   display: flex;
   flex-direction: column;
+  animation-name: fadeIn;
+  animation-delay: 0.3s;
 }
 
 .hero {
@@ -1568,6 +1669,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: fadeIn;
 }
 .hero .desktop-hero {
   width: 100%;
@@ -1578,6 +1680,8 @@ main {
   justify-content: space-between;
   position: relative;
   overflow-x: hidden;
+  animation-name: slideUp;
+  animation-delay: 0.4s;
 }
 .hero .desktop-hero .vector {
   width: 100%;
@@ -1593,6 +1697,8 @@ main {
   flex-direction: column;
   align-items: start;
   justify-content: space-around;
+  animation-name: slideInLeft;
+  animation-delay: 0.5s;
 }
 .hero .desktop-hero .text-box > span {
   display: flex;
@@ -1600,9 +1706,14 @@ main {
   font-size: 48px;
   gap: 0.5rem;
   white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+.hero .desktop-hero .text-box > span:hover {
+  transform: translateX(5px);
 }
 .hero .desktop-hero .text-box > span span:last-child {
   font-weight: 900;
+  transition: color 0.3s ease;
 }
 .hero .desktop-hero .text-box > span:nth-child(2) {
   font-weight: 900;
@@ -1617,6 +1728,12 @@ main {
 .hero .desktop-hero .text-box p {
   font-size: 1rem;
   line-height: 2;
+  animation-name: fadeIn;
+  animation-delay: 0.6s;
+  transition: transform 0.3s ease;
+}
+.hero .desktop-hero .text-box p:hover {
+  transform: scale(1.01);
 }
 .hero .desktop-hero .social {
   width: 320px;
@@ -1627,6 +1744,8 @@ main {
   position: absolute;
   bottom: 0px;
   left: 0;
+  animation-name: slideUp;
+  animation-delay: 0.7s;
 }
 .hero .desktop-hero .social > a {
   width: 56px;
@@ -1638,10 +1757,18 @@ main {
   font-size: 20px;
   background-color: transparent;
   color: #000000;
+  transition: all 0.3s ease;
+}
+.hero .desktop-hero .social > a:hover {
+  transform: translateY(-5px) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 .hero .desktop-hero .social > a:first-child {
   background-color: #000000;
   color: #ffffff;
+}
+.hero .desktop-hero .social > a:first-child:hover {
+  background-color: rgb(25.5, 25.5, 25.5);
 }
 .hero .mobile-hero {
   display: none;
@@ -1653,6 +1780,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation-name: fadeIn;
+  animation-delay: 0.5s;
 }
 .skills .desktop-skills {
   width: 100%;
@@ -1662,6 +1791,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  animation-name: slideUp;
+  animation-delay: 0.6s;
 }
 .skills .desktop-skills .heading {
   width: 100%;
@@ -1671,9 +1802,15 @@ main {
   justify-content: center;
   gap: 0.5rem;
   font-size: 48px;
+  animation-name: fadeIn;
+  animation-delay: 0.7s;
 }
 .skills .desktop-skills .heading h3 {
   font-weight: 400;
+  transition: transform 0.3s ease;
+}
+.skills .desktop-skills .heading h3:hover {
+  transform: scale(1.02);
 }
 .skills .desktop-skills .heading h3 span {
   font-weight: 900;
@@ -1686,6 +1823,8 @@ main {
   grid-template-rows: 186px 186px;
   justify-content: space-between;
   grid-row-gap: 40px;
+  animation-name: fadeIn;
+  animation-delay: 0.8s;
 }
 .skills .desktop-skills .container .box {
   background-color: #ffffff;
@@ -1696,17 +1835,56 @@ main {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  transition: background, color 0.5 ease-in-out;
+  transition: all 0.3s ease;
+  animation-name: slideUp;
+  animation-duration: 0.5s;
+}
+.skills .desktop-skills .container .box:nth-child(1) {
+  animation-delay: 0.9s;
+}
+.skills .desktop-skills .container .box:nth-child(2) {
+  animation-delay: 1s;
+}
+.skills .desktop-skills .container .box:nth-child(3) {
+  animation-delay: 1.1s;
+}
+.skills .desktop-skills .container .box:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.skills .desktop-skills .container .box:nth-child(5) {
+  animation-delay: 1.3s;
+}
+.skills .desktop-skills .container .box:nth-child(6) {
+  animation-delay: 1.4s;
+}
+.skills .desktop-skills .container .box:nth-child(7) {
+  animation-delay: 1.5s;
+}
+.skills .desktop-skills .container .box:nth-child(8) {
+  animation-delay: 1.6s;
+}
+.skills .desktop-skills .container .box:nth-child(9) {
+  animation-delay: 1.7s;
+}
+.skills .desktop-skills .container .box:nth-child(10) {
+  animation-delay: 1.8s;
 }
 .skills .desktop-skills .container .box .box-pic {
   font-size: 56px;
+  transition: transform 0.3s ease;
 }
 .skills .desktop-skills .container .box .box-text {
   font-size: 20px;
+  transition: transform 0.3s ease;
 }
 .skills .desktop-skills .container .box:hover {
   background: #000000;
   color: #ffffff;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.skills .desktop-skills .container .box:hover .box-pic, .skills .desktop-skills .container .box:hover .box-text {
+  transform: scale(1.1);
 }
 .skills .mobile-skills {
   display: none;
@@ -1717,6 +1895,7 @@ main {
     width: 100%;
     height: 72px;
     padding: 0 32px;
+    animation-name: fadeIn;
   }
   .header .desktop-header {
     display: none;
@@ -1727,14 +1906,23 @@ main {
     justify-content: space-between;
     width: 100%;
     height: 40px;
+    animation-name: slideDown;
+    animation-delay: 0.2s;
   }
   .header .mobile-header a {
     width: 140px;
     height: 40px;
+    transition: transform 0.3s ease;
+    animation-name: slideInLeft;
+    animation-delay: 0.3s;
+  }
+  .header .mobile-header a:hover {
+    transform: scale(1.05);
   }
   .header .mobile-header a img {
     width: 100%;
     height: 100%;
+    transition: transform 0.3s ease;
   }
   .header .mobile-header .action-btn {
     width: 36px;
@@ -1743,6 +1931,13 @@ main {
     background: transparent;
     border: none;
     cursor: pointer;
+    transition: all 0.3s ease;
+    animation-name: slideInRight;
+    animation-delay: 0.4s;
+  }
+  .header .mobile-header .action-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: black;
   }
   .hero {
     width: 100%;
@@ -1751,6 +1946,7 @@ main {
     align-items: center;
     justify-content: center;
     padding: 0 2rem;
+    animation-name: fadeIn;
   }
   .hero .desktop-hero {
     display: none;
@@ -1762,14 +1958,18 @@ main {
     justify-content: space-between;
     width: 100%;
     height: 788px;
+    animation-name: fadeIn;
+    animation-delay: 0.3s;
   }
   .hero .mobile-hero .vector-box {
     width: 100%;
     height: 332px;
+    animation: pulse 4s infinite;
   }
   .hero .mobile-hero .vector-box img {
     width: 100%;
     height: 100%;
+    transition: transform 0.3s ease;
   }
   .hero .mobile-hero .text-box {
     width: 100%;
@@ -1778,6 +1978,8 @@ main {
     flex-direction: column;
     align-items: start;
     justify-content: space-around;
+    animation-name: slideUp;
+    animation-delay: 0.4s;
   }
   .hero .mobile-hero .text-box > span {
     display: flex;
@@ -1785,9 +1987,14 @@ main {
     font-size: 24px;
     gap: 0.5rem;
     white-space: nowrap;
+    transition: transform 0.3s ease;
+  }
+  .hero .mobile-hero .text-box > span:hover {
+    transform: translateX(5px);
   }
   .hero .mobile-hero .text-box > span span:last-child {
     font-weight: 900;
+    transition: color 0.3s ease;
   }
   .hero .mobile-hero .text-box > span:nth-child(2) {
     font-weight: 900;
@@ -1802,6 +2009,12 @@ main {
   .hero .mobile-hero .text-box p {
     font-size: 1rem;
     line-height: 1.8;
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
+    transition: transform 0.3s ease;
+  }
+  .hero .mobile-hero .text-box p:hover {
+    transform: scale(1.01);
   }
   .hero .mobile-hero .text-box .social {
     width: 264px;
@@ -1809,6 +2022,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    animation-name: slideUp;
+    animation-delay: 0.6s;
   }
   .hero .mobile-hero .text-box .social a {
     width: 48px;
@@ -1818,8 +2033,11 @@ main {
     place-items: center;
     border-radius: 4px;
     font-size: 20px;
+    transition: all 0.3s ease;
   }
   .hero .mobile-hero .text-box .social a:hover {
+    transform: translateY(-5px) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     background: #000000;
     color: #ffffff;
   }
@@ -1829,6 +2047,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
   }
   .skills .desktop-skills {
     display: none;
@@ -1840,6 +2060,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    animation-name: slideUp;
+    animation-delay: 0.6s;
   }
   .skills .mobile-skills .heading {
     width: 100%;
@@ -1848,10 +2070,16 @@ main {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    animation-name: fadeIn;
+    animation-delay: 0.7s;
   }
   .skills .mobile-skills .heading h3 {
     font-size: 28px;
     font-weight: 400;
+    transition: transform 0.3s ease;
+  }
+  .skills .mobile-skills .heading h3:hover {
+    transform: scale(1.02);
   }
   .skills .mobile-skills .heading h3 span {
     font-weight: 900;
@@ -1864,6 +2092,8 @@ main {
     grid-auto-rows: 160px;
     gap: 20px;
     padding: 10px;
+    animation-name: fadeIn;
+    animation-delay: 0.8s;
   }
   .skills .mobile-skills .container .box {
     display: flex;
@@ -1875,16 +2105,56 @@ main {
     background-color: #ffffff;
     border-radius: 4px;
     gap: 1rem;
+    transition: all 0.3s ease;
+    animation-name: slideUp;
+    animation-duration: 0.5s;
+  }
+  .skills .mobile-skills .container .box:nth-child(1) {
+    animation-delay: 0.9s;
+  }
+  .skills .mobile-skills .container .box:nth-child(2) {
+    animation-delay: 1s;
+  }
+  .skills .mobile-skills .container .box:nth-child(3) {
+    animation-delay: 1.1s;
+  }
+  .skills .mobile-skills .container .box:nth-child(4) {
+    animation-delay: 1.2s;
+  }
+  .skills .mobile-skills .container .box:nth-child(5) {
+    animation-delay: 1.3s;
+  }
+  .skills .mobile-skills .container .box:nth-child(6) {
+    animation-delay: 1.4s;
+  }
+  .skills .mobile-skills .container .box:nth-child(7) {
+    animation-delay: 1.5s;
+  }
+  .skills .mobile-skills .container .box:nth-child(8) {
+    animation-delay: 1.6s;
+  }
+  .skills .mobile-skills .container .box:nth-child(9) {
+    animation-delay: 1.7s;
+  }
+  .skills .mobile-skills .container .box:nth-child(10) {
+    animation-delay: 1.8s;
   }
   .skills .mobile-skills .container .box .box-pic {
     font-size: 56px;
+    transition: transform 0.3s ease;
   }
   .skills .mobile-skills .container .box .box-text {
     font-size: 20px;
+    transition: transform 0.3s ease;
   }
   .skills .mobile-skills .container .box:hover {
     background-color: #000000;
     color: #ffffff;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  .skills .mobile-skills .container .box:hover .box-pic, .skills .mobile-skills .container .box:hover .box-text {
+    transform: scale(1.1);
   }
 }
 
